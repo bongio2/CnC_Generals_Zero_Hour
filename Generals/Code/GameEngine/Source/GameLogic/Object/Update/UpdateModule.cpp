@@ -172,11 +172,10 @@ void UpdateModule::xfer( Xfer *xfer )
 	}
 #endif
 
-	// m_indexInLogic is not saved -- it's restored in gamelogic::postprocess.
-	if( xfer->getXferMode() == XFER_LOAD )
-	{
-		m_indexInLogic = -1;
-	}
+	// GeneralsX @bugfix Warp 16/11/2026 Preserve registered indices if loading fails.
+	// The index is runtime-only: objects are already registered before xfer().
+	// Clearing it here leaves failed-load cleanup indexing the scheduler with -1.
+	// GameLogic::loadPostProcess() resets indices when rebuilding the scheduler.
 
 }
 

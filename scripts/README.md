@@ -58,6 +58,8 @@ Utilities for large-scale code refactoring and fixes:
 
 ### `qa/` - Quality Assurance & Testing
 
+- `test-save-load-rejection.py` - Check failed-save cleanup using a temporary copy of a locally supplied invalid save. Run with `--launcher /path/to/run.sh --save /path/to/invalid.sav --log /path/to/new-test.log`; requires a configured game runtime and verifies explicit rejection with a clean exit. Never add retail save files to the repository.
+
 #### `qa/smoke/` - Smoke Tests
 - `docker-smoke-test-zh.sh` - Quick startup validation (expects crash, checks init output)
 - `run-bundled-game.sh` - Test bundled binary after deployment
